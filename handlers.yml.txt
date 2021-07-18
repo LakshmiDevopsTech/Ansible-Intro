@@ -1,0 +1,21 @@
+---
+- name: "handlers Demo"
+  become: true
+  hosts: servers
+  
+  tasks:
+    
+    - name: "Task-01 - Installing Apache Server"
+      yum: 
+        name=httpd 
+        state=present
+      notify:
+        - restart-httpd
+  
+  handlers:        
+        
+    - name: "restart-httpd"
+      service:
+        name: httpd
+        state: restarted
+        enabled: true
