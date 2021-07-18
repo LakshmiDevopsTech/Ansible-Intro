@@ -91,4 +91,9 @@ vi plabook.yml
        state: present
 ```
 Here, we can mention the external file using `vars_files:`
+### Handlers
+With handlers you can execute any Ansible module when given task will result in changed state. 
+see the file [handlers.yml] (https://github.com/LakshmiDevopsTech/Ansible-Intro/blob/main/handlers.yml)
 
+We added `notify` parameter. It takes one argument which is name of the handler to execute. 
+Now when you will change something in the template, template task will result in changes. It will notify the handler which will restart apache.
