@@ -97,3 +97,34 @@ see the file [handlers.yml] (https://github.com/LakshmiDevopsTech/Ansible-Intro/
 
 We added `notify` parameter. It takes one argument which is name of the handler to execute. 
 Now when you will change something in the template, template task will result in changes. It will notify the handler which will restart apache.
+
+### Roles
+Roles are essential part of Ansible. Roles are reusable and it can be used in different playbooks. They hold number of tasks, handlers and templates. Think of them like unix packages.
+The role path is `/etc/ansible/roles`.
+For creating a role for LAMP stack we can use the below command from the role path.
+```
+ansible-galaxy init lamp
+```
+The lamp structure should be like:
+```
+.
+└── lamp
+    ├── defaults
+    │   └── main.yml
+    ├── files
+    ├── handlers
+    │   └── main.yml
+    ├── meta
+    │   └── main.yml
+    ├── README.md
+    ├── tasks
+    │   └── main.yml
+    ├── templates
+    ├── tests
+    │   ├── inventory
+    │   └── test.yml
+    └── vars
+        └── main.yml
+```
+For more details about this each structure go through the link : https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
+
